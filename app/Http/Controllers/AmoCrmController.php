@@ -31,9 +31,9 @@ class AmoCrmController extends Controller
          * Данные для Объекта Амо берутся из интеграции в личном кабнете.
          */
         $apiClient = new AmoCRMApiClient(
-            'dbf5b0c2-9df1-4911-893b-e85991dfecd0',
-            '1QEZCjpfzZza2InsZdD00jMMiMRgG8ipVfmyLP02p2rwnLVy0qfWGZW4kPkm0vbi',
-            'https://a478-91-184-253-160.eu.ngrok.io'
+            config('integrations.amocrm.client_id'),
+            config('integrations.amocrm.client_secret'),
+            config('integrations.amocrm.redirect_uri')
         );
 
         $apiClient = (new AmoHelper($apiClient))->getNewToken();
