@@ -31,3 +31,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN apt-get purge
 RUN echo "alias ll='ls -la'" >> ~/.bashrc
+
+ARG LOCAL_LINUX_USER
+ARG LOCAL_LINUX_USER_UID
+
+RUN useradd -m ${LOCAL_LINUX_USER} --uid=${LOCAL_LINUX_USER_UID}
+USER ${LOCAL_LINUX_USER}

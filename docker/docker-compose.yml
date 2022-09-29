@@ -38,6 +38,9 @@ services:
     build:
       context: .
       dockerfile: ./development.Dockerfile
+      args:
+        LOCAL_LINUX_USER: ${LOCAL_LINUX_USER:-0}
+        LOCAL_LINUX_USER_UID: ${LOCAL_LINUX_USER_UID:-0}
     container_name: php
     volumes:
       - ../.:/var/www/html:delegated
